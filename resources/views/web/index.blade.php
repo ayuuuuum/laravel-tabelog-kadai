@@ -24,7 +24,8 @@
                 <div class="col-md-4">
                     <a href="{{ route('shops.show', $recommended_shop) }}">
                 @if ($recommended_shop->image !== "")
-                    <img src="{{ asset('storage/' . $recommended_shop->image) }}" class="img-thumbnail samuraimart-product-img-recommend"> {{--alt="Shop Image"--}}
+                    <img src="{{ asset('img/' . $recommended_shop->image) }}" class="img-thumbnail samuraimart-product-img-detail">
+                    {{--<img src="{{ asset('storage/' . $recommended_shop->image) }}" class="img-thumbnail samuraimart-product-img-recommend" alt="Shop Image">--}}
                 @else
                     <img src="{{ asset('img/dummy.png')}}" class="img-thumbnail samuraimart-product-img-recommend">
                 @endif
@@ -64,7 +65,8 @@
                     <a href="{{ route('shops.show', $recently_shop) }}">
                         {{--もし画像があれば表示。無ければ指定の画像を表示--}}
                         @if ($recently_shop->image !== "")
-                        <img src="{{ asset('storage/' . $recently_shop->image) }}" class="img-thumbnail samuraimart-product-img-products"> {{--alt="Shop Image"--}}
+                        <img src="{{ asset('img/' . $recently_shop->image) }}" class="img-thumbnail samuraimart-product-img-detail">
+                        {{--<img src="{{ asset('storage/' . $recently_shop->image) }}" class="img-thumbnail samuraimart-product-img-products" alt="Shop Image">--}}
                         @else
                         <img src="{{ asset('img/dummy.png')}}" class="img-thumbnail samuraimart-product-img-products">
                         @endif
