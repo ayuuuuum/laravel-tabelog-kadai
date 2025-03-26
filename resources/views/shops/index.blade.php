@@ -74,7 +74,8 @@
                    <a href="{{route('shops.show', $shop)}}">
                         {{--もし画像があれば表示。無ければ指定の画像を表示--}}
                         @if ($shop->image !== "")
-                        <img src="{{ asset('storage/' . $shop->image) }}" class="img-thumbnail samuraimart-product-img-products" alt="Shop-Img">
+                        <p>{{ asset('storage/img/' . $shop->image) }}</p>
+                        <img src="{{ asset('storage/img/' . $shop->image) }}" class="img-thumbnail samuraimart-product-img-products" alt="Shop-Img">
                         @else
                         <img src="{{ asset('img/dummy.png')}}" class="img-thumbnail samuraimart-product-img-products">
                         @endif

@@ -48,7 +48,8 @@ class ShopResource extends Resource
                 FileUpload::make('image')
                 ->label('店舗画像')
                 ->image()
-                ->directory('shops'), //`storage/app/public/shops` に保存
+                ->disk('public') // ← config/filesystems.php の public ディスク
+                ->directory('img'), // ← public/img に保存される
 
                 Toggle::make('recommend_flag') // おすすめフラグ
                 ->label('おすすめ店舗'),

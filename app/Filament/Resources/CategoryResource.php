@@ -40,7 +40,8 @@ class CategoryResource extends Resource
                 FileUpload::make('image')
                 ->label('カテゴリー画像')
                 ->image()
-                ->directory('categories') //`storage/app/public/categories` に保存
+                ->disk('public') // ← config/filesystems.php の public ディスク
+                ->directory('img') 
                 
             ]);
     }
