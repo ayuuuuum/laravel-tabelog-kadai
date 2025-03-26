@@ -18,7 +18,8 @@
     <div class="col-md-6">
         {{--もし画像があれば表示。無ければ指定の画像を表示--}}
         @if ($shop->image !== "")
-        <img src="{{ asset('storage/img/ . $shop->image') }}" class="img-thumbnail samuraimart-product-img-detail">
+        <img src="{{ asset('img/burger.jpg') }}">
+        {{--<img src="{{ asset('storage/img/ . $shop->image') }}" class="img-thumbnail samuraimart-product-img-detail">--}}
         @else
         <img src="{{ asset('img/dummy.png')}}" class="img-thumbnail samuraimart-product-img-detail">
         @endif
