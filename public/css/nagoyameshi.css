@@ -211,21 +211,19 @@ label {
   
 .samuraimart-product-img-detail {
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 400px;
+    object-fit: cover;
 }
   
 .samuraimart-product-img-recommend {
     width: 100%;
-    height: auto;
-    max-height: 240px;
+    height: 300px;
     object-fit: contain;
 }
   
 .samuraimart-product-img-products {
     width: 100%;
-    height: auto;
-    max-width: 300px;
+    height: 400px;
     /*aspect-ratio: 1 / 1;*/
     object-fit: contain;
 }
