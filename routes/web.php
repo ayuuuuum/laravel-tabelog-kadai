@@ -12,6 +12,7 @@ use App\Http\Controllers\ReservateController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\TermsController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\AdminShopController;
 use Illuminate\Support\Facades\Route;
 
 /*
