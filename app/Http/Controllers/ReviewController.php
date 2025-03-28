@@ -50,4 +50,35 @@ class ReviewController extends Controller
         return back();
     }
 
+    public function edit(Review $review)
+    {
+        $this->authorize('update', $review); // ポリシーで認可
+        return view('reviews.edit', compact('review'));
+    }
+
+    public function update(Request $request, Review $review)
+    {
+        $this->authorize('update', $review);
+
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required',
+            'score' => 'required|integer|between:1,5',
+        ]);
+
+        $review->update($validated);
+
+        return redirect()->route('shops.show', $review->shop_id)->with('flash_message', 'レビューを更新しました！');
+    }
+
+    public function destroy(Review $review)
+    {
+        $this->authorize('delete', $review);
+
+        $shopId = $review->shop_id;
+        $review->delete();
+
+        return redirect()->route('shops.show', $shopId)->with('flash_message', 'レビューを削除しました！');
+    }
+
 }

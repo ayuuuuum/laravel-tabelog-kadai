@@ -48,6 +48,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('users/mypage/cancel-subscription', [SubscriptionController::class, 'showCancelPage'])->name('mypage.cancel_subscription');
     Route::post('users/mypage/cancel-subscription', [SubscriptionController::class, 'cancelSubscription'])->name('mypage.cancel_subscription_post');
 
+    Route::get('/reviews/{review}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
+    Route::put('/reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');
+    Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+
     //UserController に関するルートをグループ化
     Route::controller(UserController::class)->group(function () {
         //マイページの表示

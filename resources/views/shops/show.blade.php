@@ -165,6 +165,24 @@
                                                         <span class="fw-bold me-2">{{$review->user->name}}</span>
                                                         <span class="text-muted">{{$review->created_at->format('Y年m月d日') }}</span>
                                                     </p>
+
+                                                    @auth
+                                                        @if ($review->user_id === auth()->id())
+                                                            <div class="d-flex gap-2">
+                                                                {{-- 編集ボタン --}}
+                                                                <a href="{{ route('reviews.edit', $review->id) }}" class="btn btn-outline-secondary btn-sm">
+                                                                    編集
+                                                                </a>
+
+                                                                {{-- 削除ボタン --}}
+                                                                <form method="POST" action="{{ route('reviews.destroy', $review->id) }}" onsubmit="return confirm('本当に削除しますか？');">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                    <button type="submit" class="btn btn-outline-danger btn-sm">削除</button>
+                                                                </form>
+                                                            </div>
+                                                        @endif
+                                                    @endauth
                                             </div>
                                         @endforeach
                                         <div class="mb-4">
