@@ -41,7 +41,8 @@ class CategoryResource extends Resource
                 ->label('カテゴリー画像')
                 ->image()
                 ->disk('public') // ← config/filesystems.php の public ディスク
-                ->directory('img') 
+                ->directory('img')
+                ->nullable(), 
                 
             ]);
     }

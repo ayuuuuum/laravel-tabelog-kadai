@@ -49,7 +49,8 @@ class ShopResource extends Resource
                 ->label('店舗画像')
                 ->image()
                 ->disk('public')  //← config/filesystems.php の public ディスク
-                ->directory('img'), // ← public/img に保存される
+                ->directory('img')// ← public/img に保存される
+                ->nullable(),
 
                 Toggle::make('recommend_flag') // おすすめフラグ
                 ->label('おすすめ店舗'),
