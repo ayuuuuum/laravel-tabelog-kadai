@@ -109,6 +109,7 @@
        <hr>
        @endif
 
+       @if (auth()->user()->subscribed('default'))
        <div class="container">
         <div class="d-flex justify-content-between">
             <div class="row">
@@ -132,8 +133,9 @@
         <hr>
 
     </div>
+        @endif
 
-
+        
        <div class="container">
             <div class="d-flex justify-content-between">
                 <div class="row">

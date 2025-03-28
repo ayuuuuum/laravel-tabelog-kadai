@@ -14,7 +14,7 @@ class WebController extends Controller
         $categories = Category::all();
 
         //新着店舗(商品の登録日時（created_at）でソートして、新しい順に4つ取得してビューに渡す)
-        $recently_shops = Shop::orderBy('created_at', 'desc')->take(4)->get();
+        $recently_shops = Shop::withAvg('reviews', 'score')->orderBy('created_at', 'desc')->take(4)->get();
 
         // おすすめ店舗を取得（recommend_flagがtrueのもの）
         $recommended_shops = Shop::withAvg('reviews', 'score')->where('recommend_flag', true)->take(4)->get();

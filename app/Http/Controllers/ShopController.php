@@ -119,6 +119,7 @@ class ShopController extends Controller
         // 平均評価を取得（Eager Loading を使用）
         $shop->loadAvg('reviews', 'score');
 
+
         return view('shops.show', compact('shop', 'reviews'));
     }
 

@@ -2,11 +2,12 @@
 
 @section('content')
 <div class="container pt-2">
-<div class="row">
-    <div class="col-md-2">
+    <div class="mb-4">
         @component('components.sidebar', ['categories' => $categories])
         @endcomponent
     </div>
+
+<div class="row">
    <div class="col">
             {{--カテゴリーの値が存在すれば、絞り込んでいるカテゴリー名、件数を表示--}}
             @if ($category !== null)
@@ -74,14 +75,13 @@
                    <a href="{{route('shops.show', $shop)}}">
                         {{--もし画像があれば表示。無ければ指定の画像を表示--}}
                         @if ($shop->image !== "")
-                        <img src="{{ asset('storage/img/' . $shop->image) }}" class="img-thumbnail samuraimart-product-img-detail">
+                        <img src="{{ asset('storage/' . $shop->image) }}" class="img-thumbnail samuraimart-product-img-detail">
                         @else
                         <img src="{{ asset('img/dummy.png')}}" class="img-thumbnail samuraimart-product-img-products">
                         @endif
                    </a>
-                   <div class="row">
-                       <div class="col-12">
-                           <p class="samuraimart-product-label mt-2">
+                   
+                            <p class="samuraimart-product-label mt-2">
                              <a href="{{ route('shops.show', $shop) }}" class="link-dark">
                                {{$shop->name}}</a><br>
                                 <br>
@@ -96,8 +96,6 @@
                                     ({{ number_format($shop->reviews_avg_score ?? 0, 1) }})
                                 </span>
                            </p>
-                       </div>
-                   </div>
                </div>
                @endforeach
            </div>
