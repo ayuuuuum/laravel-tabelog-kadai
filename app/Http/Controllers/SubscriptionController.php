@@ -23,7 +23,7 @@ class SubscriptionController extends Controller
             try {
 
                 // 解約処理
-                $user->subscription('default')->cancel();
+                $user->subscription('default')->cancelNow();
 
                 return redirect()->route('mypage')->with('flash_message', '有料会員の解約が完了しました。');
 
