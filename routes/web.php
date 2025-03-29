@@ -50,6 +50,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('users/mypage/subscription', [SubscriptionController::class, 'processSubscription'])->name('mypage.process_subscription');
     Route::get('users/mypage/cancel-subscription', [SubscriptionController::class, 'showCancelPage'])->name('mypage.cancel_subscription');
     Route::post('users/mypage/cancel-subscription', [SubscriptionController::class, 'cancelSubscription'])->name('mypage.cancel_subscription_post');
+    Route::get('users/mypage/card', [SubscriptionController::class, 'editCard'])->name('mypage.edit_card');
+    Route::post('users/mypage/card', [SubscriptionController::class, 'updateCard'])->name('mypage.update_card');
 
     Route::get('/reviews/{review}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
     Route::put('/reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');

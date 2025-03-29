@@ -66,4 +66,25 @@ class SubscriptionController extends Controller
         return redirect()->route('mypage')->with('flash_message', '既に解約されています。');
     }
 
+    // カード情報編集フォームを表示
+    public function editCard()
+    {
+        $user = Auth::user();
+        return view('users.edit_card', compact('user'));
+    }
+
+    // カード情報更新処理
+    public function updateCard(Request $request)
+    {
+        $user = Auth::user();
+
+        // Stripeに顧客が存在しない場合は作成
+        $user->createOrGetStripeCustomer();
+
+        // カード情報を更新
+        $user->updateDefaultPaymentMethod($request->payment_method);
+
+        return redirect()->route('mypage')->with('flash_message', 'クレジットカード情報を更新しました！');
+    }
+
 }
