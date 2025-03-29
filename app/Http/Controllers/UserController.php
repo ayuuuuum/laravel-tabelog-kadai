@@ -100,22 +100,7 @@ class UserController extends Controller
         return view('users.favorite', compact('favorite_shops'));
     }
 
-    /*クレジットカード情報をStripeに登録
-    public function storePaymentMethod(Request $request)
-    {
-        $user = Auth::user();
-
-        // Stripeの顧客情報を作成
-        $user->createOrGetStripeCustomer();
-
-        //クレジットカード情報を登録
-        $user->updateDefaultPaymentMethod($request->paymentmethod);
-
-        //成功メッセージを表示して、元のページに戻る
-        return back()->with('success', 'カード情報を登録しました！');
-    }*/
-
-    //有料会員登録ページを表示
+    /*有料会員登録ページを表示
     public function showSubscriptionForm()
     {
         $user = Auth::user();
@@ -123,25 +108,6 @@ class UserController extends Controller
         return view('users.subscription', compact('user'));
     }
 
-    /*クレジットカード登録 & サブスク契約処理
-    public function processSubscription(Request $request)
-    {
-    $user = Auth::user();
-    $user->createOrGetStripeCustomer();
-    $user->updateDefaultPaymentMethod($request->payment_method);
-
-    $subscription = $user->newSubscription('default', 'price_1R2upmQ9d9JAAZz6bq9jugty')
-        ->create($request->payment_method, ['payment_behavior' => 'default_incomplete']);
-
-    if ($subscription->latestPayment()->requiresAction()) {
-        return response()->json([
-            'requires_action' => true,
-            'payment_intent_client_secret' => $subscription->latestPayment()->clientSecret(),
-        ]);
-    }
-
-    return response()->json(['success' => true]);
-    }*/
 
     //クレジットカード登録 & サブスク契約処理
     public function processSubscription(Request $request)
@@ -156,13 +122,13 @@ class UserController extends Controller
 
         /*サブスクリプションを開始（"price_xxxx" はStripeのプランID）
         default → サブスクの名前（複数サブスクを扱う場合に識別するため）
-        $request->payment_method → フロントから送られた paymentMethod（カード情報）*/
+        $request->payment_method → フロントから送られた paymentMethod（カード情報）
         $user->newSubscription('default', 'price_1R2upmQ9d9JAAZz6bq9jugty')
             ->create($request->payment_method, ['payment_behavior' => 'default_incomplete']);
 
         //メッセージを表示してマイページにリダイレクト
         return redirect()->route('mypage')->with('success', '有料会員登録が完了しました！');
-    }
+    }*/
 
     //退会用画面　deleteメソッドで論理削除ができる
     public function destroy(Request $request)

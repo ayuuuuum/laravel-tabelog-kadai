@@ -46,6 +46,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/reservate/create/{shop}', [ReservateController::class, 'create'])->name('reservate.create');
     Route::delete('/reservate/{id}', [ReservateController::class, 'destroy'])->name('reservate.destroy');
 
+    Route::get('users/mypage/subscription', [SubscriptionController::class, 'showSubscriptionForm'])->name('mypage.show_subscription');
+    Route::post('users/mypage/subscription', [SubscriptionController::class, 'processSubscription'])->name('mypage.process_subscription');
     Route::get('users/mypage/cancel-subscription', [SubscriptionController::class, 'showCancelPage'])->name('mypage.cancel_subscription');
     Route::post('users/mypage/cancel-subscription', [SubscriptionController::class, 'cancelSubscription'])->name('mypage.cancel_subscription_post');
 
@@ -67,10 +69,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::put('users/mypage/password', 'update_password')->name('mypage.update_password');
         //お気に入り店舗一覧を表示
         Route::get('users/mypage/favorite', 'favorite')->name('mypage.favorite');
-        //カード入力画面を表示
+        /*カード入力画面を表示
         Route::get('users/mypage/subscription', 'showSubscriptionForm')->name('mypage.show_subscription');
         //カードを登録してサブスク契約を実行
-        Route::post('users/mypage/subscription', 'processSubscription')->name('mypage.process_subscription');
+        Route::post('users/mypage/subscription', 'processSubscription')->name('mypage.process_subscription');*/
         //退会機能を実行
         Route::delete('users/mypage/delete', 'destroy')->name('mypage.destroy');
 

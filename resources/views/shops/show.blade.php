@@ -50,6 +50,7 @@
                </p>
                <hr class="my-4">
            @auth
+           @if(Auth::user()->subscribed('default'))
            <form method="POST" class="m-3 align-items-end">
                @csrf
                <input type="hidden" name="id" value="{{$shop->id}}">
@@ -58,6 +59,8 @@
                <input type="hidden" name="image" value="{{$shop->image}}">
                <input type="hidden" name="open_time" value="{{$shop->open_time}}">
                <input type="hidden" name="close_time" value="{{$shop->close_time}}">
+            </form>
+            
                    <div class="col">
                         {{--Auth::user()=ログイン中のユーザー取得
                             favorite_shops()=ユーザーが登録したお気に入りショップ一覧を取得（多対多のリレーション）
@@ -69,24 +72,34 @@
                                 <i class="fa fa-heart"></i>
                                 お気に入り解除
                             </a>
+
+                            <form id="favorites-destroy-form" action="{{ route('favorites.destroy', $shop->id) }}" method="POST" style="display: none;">
+                                @csrf
+                                @method('DELETE')
+                            </form>
+
                         @else
                             {{--お気に入り未登録の場合--}}
                             <a href="{{ route('favorites.store', $shop->id) }}" class="btn samuraimart-favorite-button text-favorite w-100 mb-2" onclick="event.preventDefault(); document.getElementById('favorites-store-form').submit();">
                                 <i class="fa fa-heart"></i>
                                 お気に入り
                             </a>
+
+                            <form id="favorites-store-form" action="{{ route('favorites.store', $shop->id) }}" method="POST" style="display: none;">
+                            @csrf
+                            </form>
+
                         @endif
     
                     </div>
-            </form>
-
+     
                     {{--route('reservate.create', ['shop' => $shop->id]) で 予約ページへ遷移--}}
                         <form method="GET" action="{{ route('reservate.create', ['shop' => $shop->id]) }}" class="m-3 align-items-end">
                             <button type="submit" class="btn samuraimart-favorite-button text-favorite w-100 mt-2">
                                 <i class="fa fa-calendar"></i> 予約する
                             </button>
                         </form>
-
+            @endif
             @endauth
     </div>
 

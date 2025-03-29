@@ -26,7 +26,9 @@
         //環境変数から公開キーを取得
         const stripe = Stripe("{{ env('STRIPE_KEY') }}"); 
         const elements = stripe.elements();
-        const cardElement = elements.create('card');
+        const cardElement = elements.create('card', {
+            hidePostalCode: true
+        });
         cardElement.mount('#card-element');
 
         const cardHolderName = document.getElementById('card-holder-name');
