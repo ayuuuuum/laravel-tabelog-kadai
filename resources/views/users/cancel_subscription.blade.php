@@ -16,11 +16,6 @@
             </ul>
         </div>
 
-        <!-- 注意事項を強調 -->
-        <div class="alert alert-warning mb-4">
-            <p>※解約後も次の請求日（解約日から1か月後）まで有料会員の機能は継続されます。</p>
-        </div>
-
         <!-- ボタンを中央寄せ -->
         <div class="text-center mb-4">
             <!-- 解約ボタン -->

@@ -43,12 +43,14 @@
 
                    <div class="vr me-4 samuraimart-vertical-bar"></div>
 
-                   <li class="nav-item me-4">
-                        {{--お気に入り店舗一覧へのリンクを表示--}}
-                       <a class="nav-link" href="{{ route('mypage.favorite') }}">
-                   <i class="far fa-heart"></i>
-                       </a>
-                   </li>
+                   {{-- お気に入り一覧（有料会員だけ表示） --}}
+                    @if (auth()->user()->subscribed('default'))
+                        <li class="nav-item me-4">
+                            <a class="nav-link" href="{{ route('mypage.favorite') }}">
+                                <i class="far fa-heart"></i>
+                            </a>
+                        </li>
+                    @endif
                @endguest
            </ul>
        </div>
