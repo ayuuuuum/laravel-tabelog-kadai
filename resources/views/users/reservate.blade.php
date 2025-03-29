@@ -4,6 +4,21 @@
 <div class="container mt-4">
     <h1>予約一覧</h1>
 
+    {{-- 成功メッセージ --}}
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    {{-- エラーメッセージ --}}
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
+
     <hr>
 
     @if ($reservations->isEmpty())

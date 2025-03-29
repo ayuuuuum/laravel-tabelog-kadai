@@ -35,14 +35,15 @@ class CategoryResource extends Resource
             
                 Textarea::make('description')
                 ->label('カテゴリーの説明')
-                ->maxLength(500),
+                ->maxLength(500)
+                ->required(),
 
                 FileUpload::make('image')
                 ->label('カテゴリー画像')
                 ->image()
                 ->disk('public') // ← config/filesystems.php の public ディスク
                 ->directory('img')
-                ->nullable(), 
+                ->required()
                 
             ]);
     }

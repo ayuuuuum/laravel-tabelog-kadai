@@ -43,14 +43,15 @@ class ShopResource extends Resource
             
                 Textarea::make('description')
                 ->label('店舗の説明')
-                ->maxLength(500),
+                ->maxLength(500)
+                ->required(),
 
                 FileUpload::make('image')
                 ->label('店舗画像')
                 ->image()
                 ->disk('public')  //← config/filesystems.php の public ディスク
                 ->directory('img')// ← public/img に保存される
-                ->nullable(),
+                ->required(),
 
                 Toggle::make('recommend_flag') // おすすめフラグ
                 ->label('おすすめ店舗'),

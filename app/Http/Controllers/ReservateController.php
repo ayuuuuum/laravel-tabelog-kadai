@@ -23,13 +23,13 @@ class ReservateController extends Controller
 
     // ユーザーがログインしているかチェック(していなかった場合はメッセージ表示)
     if (!auth()->check()) {
-        return response()->json(['message' => 'ログインが必要です'], 401);
+        return redirect()->back()->with('error' , 'ログインが必要です');
     }
 
     // ログイン中のユーザーが有料会員かどうかをチェック
     $user = auth()->user();
     if (!$user->subscribed('default')) { // 'default' は Stripe のサブスク名
-        return response()->json(['message' => '予約機能は有料会員のみ利用できます'], 403);
+        return redirect()->back()->with('error', '予約機能は有料会員のみ利用できます');
     }
 
     $request->validate([
@@ -60,7 +60,7 @@ class ReservateController extends Controller
     
     //すでに同じ日時で予約が入っている場合、予約を受け付けないようにする
     if ($exists) {
-        return response()->json(['message' => 'この時間は既に予約されています'], 409);
+        return redirect()->back()->with('error', 'この時間は既に予約されています');
     }
 
     // 予約作成(予約情報をデータベースに保存)
