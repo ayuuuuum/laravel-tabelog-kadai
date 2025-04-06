@@ -1,25 +1,37 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container pt-2">
-    @if (session('flash_message'))
-        <div class="row mb-2">
-            <div class="col-12">
-                <div class="alert alert-light">
-                {{ session('flash_message') }}
+    <div id="topCarousel" class="carousel slide mb-4" data-bs-ride="carousel" data-bs-interval="4000">
+        <div class="carousel-inner">
+            <div class="carousel-caption-text">
+                <p>名古屋ならではの味を見つけよう</p>
+                    <h3>NAGOYAMESHIは、<br>
+                        名古屋市のB級グルメ専門のレビューサイトです。</h3>
+            </div>
+            <div class="carousel-item active">
+                <div class="carousel-image-wrapper position-relative">
+                    <img src="{{ asset('storage/img/top1.jpg') }}" class="d-block w-100 carousel-image" alt="1枚目">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-image-wrapper position-relative">
+                    <img src="{{ asset('storage/img/top2.jpg') }}" class="d-block w-100 carousel-image" alt="2枚目">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-image-wrapper position-relative">
+                    <img src="{{ asset('storage/img/海鮮丼.jpg') }}" class="d-block w-100 carousel-image" alt="3枚目">
                 </div>
             </div>
         </div>
-    @endif
-        <!--<div class="row">
-            <div class="col-md-2">-->
-            @component('components.sidebar', ['categories' => $categories])
-            @endcomponent
-            <!--</div>
-        </div>-->
+    </div>
+
+<div class="container pt-2">
+    @component('components.sidebar', ['categories' => $categories])
+    @endcomponent
 
     <div class="mb-4">
-        <h2>おすすめ店舗</h2>
+        <h2>評価が高いお店</h2>
             <div class="row">
                 @foreach ($recommended_shops as $recommended_shop)
                     <div class="col-md-3 mb-4">
@@ -31,8 +43,8 @@
                             @endif
                         </a>
                             <p class="samuraimart-product-label mt-2">
-                            <a href="{{ route('shops.show', $recommended_shop) }}" class="link-dark">{{ $recommended_shop->name }}</a><br>
-                                <span>
+                            <a href="{{ route('shops.show', $recommended_shop) }}" class="link-dark" style="text-decoration: none;">{{ $recommended_shop->name }}</a><br>
+                                <span class="review-color">
                                     @for ($i = 1; $i <= 5; $i++)
                                         @if ($i <= round($recommended_shop->reviews_avg_score))
                                             ★
@@ -50,9 +62,7 @@
 
            
     <div class="mb-4">
-       <h2>新着店舗</h2>
-            {{--値がidのsortパラメータと、値がdescのdirectionパラメータを連想配列で指定
-            「IDが大きい順」に並んだ状態の店舗一覧ページに遷移させる--}}
+       <h2>新規掲載店舗</h2>
           <div class="text-end mb-2">
             <a href="{{ route('shops.index', ['sort' => 'id', 'direction' => 'desc']) }}">もっと見る</a>
           </div>
@@ -69,9 +79,8 @@
                                 @endif
                             </a>
                                     <p class="samuraimart-product-label mt-2">
-                                    <a href="{{ route('shops.show', $recently_shop) }}" class="link-dark">{{ $recently_shop->name }}</a><br>
-                                    <br>
-                                        <span>
+                                    <a href="{{ route('shops.show', $recently_shop) }}" class="link-dark" style="text-decoration: none;">{{ $recently_shop->name }}</a><br>
+                                        <span class="review-color">
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= round($recently_shop->reviews_avg_score))
                                                     ★
@@ -86,4 +95,6 @@
                     @endforeach
                 </div>
    </div>
+</div>
+
 @endsection

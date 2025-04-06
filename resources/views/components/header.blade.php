@@ -1,5 +1,5 @@
 <header>
-   <nav class="navbar navbar-expand-md navbar-light shadow-sm samuraimart-header-container h-auto">
+  <nav class="navbar navbar-expand-md navbar-light shadow-sm samuraimart-header-container h-auto">
    <div class="container">
        <a class="navbar-brand logo-text" href="{{ url('/') }}">
            {{ config('app.name', 'NAGOYAMESHI') }}
@@ -41,10 +41,9 @@
                    <i class="fas fa-user me-2"></i>マイページ</a>
                    </li>
 
-                   <div class="vr me-4 samuraimart-vertical-bar"></div>
-
                    {{-- お気に入り一覧（有料会員だけ表示） --}}
                     @if (auth()->user()->subscribed('default'))
+                    <div class="vr me-4 samuraimart-vertical-bar"></div>
                         <li class="nav-item me-4">
                             <a class="nav-link" href="{{ route('mypage.favorite') }}">
                                 <i class="far fa-heart"></i>

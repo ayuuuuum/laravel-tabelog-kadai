@@ -114,7 +114,7 @@ class ShopController extends Controller
     public function show(Shop $shop)
     {
         //店舗についての全てのレビューを取得して$reviewsに保存
-        $reviews = $shop->reviews()->paginate(5);
+        $reviews = $shop->reviews()->paginate(3);
 
         // 平均評価を取得（Eager Loading を使用）
         $shop->loadAvg('reviews', 'score');

@@ -42,7 +42,7 @@
             <input type="number" id="number_of_people" name="number_of_people" class="form-control" min="1" required>
         </div>
 
-        <button type="submit" class="btn btn-success">予約を確定</button>
+        <button type="submit" class="reservation-btn btn btn-success">予約を確定</button>
     </form>
 </div>
 @endsection

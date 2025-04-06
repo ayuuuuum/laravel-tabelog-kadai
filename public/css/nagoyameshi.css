@@ -103,7 +103,7 @@ label {
     line-height: normal;
     letter-spacing: normal;
     color: #ffffff;
-    background-color: #0fbe9f;
+    background-color: #ed7b23;
 }
    
 .samuraimart-login-text {
@@ -113,7 +113,7 @@ label {
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    color: #0fbe9f;
+    color: #ed7b23;
 }
 
 .samuraimart-header-container {
@@ -126,7 +126,7 @@ label {
 }
 
 .samuraimart-header-search-button {
-    background-color: #ec802d;
+    background-color: #ed7b23;
 }
 
 .samuraimart-header-search-icon {
@@ -142,22 +142,19 @@ label {
 }
 
 .logo-text {
-    font-family: 'M PLUS Rounded 1c', sans-serif; /* フォント変更 */
-    font-size: 20px;  /* サイズ調整 */
-    font-weight: bold;  /* 太字 */
-    color: #f07b07;  /* オレンジ色 */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);  /* 影をつける */
-    letter-spacing: 2px;  /* 文字間 */
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 600;
+    color: #5f5f5f;
 }
 
 .samuraimart-favorite-button {
     border-radius: 2px;
-    border: solid 1px #0fbe9f;
+    border: solid 1px #ec802d;
     background-color: #ffffff;
 }
   
 .text-favorite {
-    color: #0fbe9f;
+    color: #ec802d;
 }
 
 .samuraimart-sidebar-category-label {
@@ -175,7 +172,7 @@ label {
 .samuraimart-favorite-add-cart {
     border-radius: 2px;
     color: #ffffff;
-    background-color: #0fbe9f;
+    background-color: #ec802d;
 }
 
 /* カード入力フィールドのスタイル */
@@ -188,11 +185,11 @@ label {
 }
 
 .review-score-color {
-    color: #0fbe9f;
+    color: #ec802d;
 }
   
 .review-score-color:focus {
-    color: #0fbe9f;
+    color: #ec802d;
 }
 
 .review-score-blank-color {
@@ -212,7 +209,7 @@ label {
 .samuraimart-product-img-detail {
     width: 100%;
     height: auto;
-    max-height: 300px;
+    max-height: 450px;
     object-fit: contain;
     aspect-ratio: 4 / 3; /* 例：横4、縦3 */
 }
@@ -274,8 +271,8 @@ label {
 .page-item:first-child > .page-link,
 .page-item:last-child > .page-link {
     border-radius: 2px;
-    background-color: #0fbe9f;
-    border-color: #0fbe9f;
+    background-color: #ec802d;
+    border-color: #ec802d;
     color: #ffffff;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -314,20 +311,20 @@ label {
   
 .page-link {
     border-radius: 2px;
-    color: #0fbe9f;
+    color: #ec802d;
 }
   
 .page-link:hover {
-    color: #0c997f;
+    color: #3b3b3b;
 }
   
 .page-link:focus {
-    color: #0c997f;
+    color: #ec802d;
 }
   
 .active > .page-link {
-    background-color: #0fbe9f;
-    border-color: #0fbe9f;
+    background-color: #ec802d;
+    border-color: #000000;
 }
   
 .active > .page-link:hover {
@@ -379,7 +376,7 @@ h1 {
 
 .category-button {
     display: inline-block;
-    border-radius: 20px;
+    border-radius: 8px;
     background-color: #ec802d;
     color: #fff;
     margin: 5px;
@@ -387,10 +384,108 @@ h1 {
     text-decoration: none;
     transition: background-color 0.3s ease;
     font-size: 14px;
+    margin-bottom: 20px;
 }
 
 .category-button:hover {
     background-color: #e2f18dc5;
     text-decoration: none;
     color: #fff;
+}
+
+.carousel-item {
+    transition-duration: 1.5s; /* デフォルトは0.6秒くらい */
+}
+
+.carousel-image {
+    height: 500px;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.carousel-image-wrapper {
+    position: relative;
+}
+
+.carousel-image-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* ←ここで色と透明度を調整！ */
+    pointer-events: none; /* 画像のクリックを邪魔しない */
+    z-index: 1;
+}
+
+.carousel-caption-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 2;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* 読みやすくするための影 */
+    padding: 1rem;
+    max-width: 90%;
+}
+
+.review-btn { 
+    color: #d7d7d7;
+    background-color: #3b3b3b;
+    border-color: #3b3b3b;
+}
+
+.review-btn:hover {
+    background-color: #a2a2a2;
+    border-color: #a2a2a2;
+}
+
+.review-color {
+    color: #ec802d;
+}
+
+.reservation-btn {
+    background-color: #ec802d;
+    border-color: #ec802d;
+}
+
+.reservation-btn:hover {
+    background-color: #5f5f5f;
+}
+
+.alert-message {
+    background-color: #ffc89e;
+    border-color: #ffc89e;
+}
+
+.category-img-wrapper {
+    position: relative;
+    width: 180px;
+    height: 120px;
+    margin: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.category-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.category-name-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* ちょっと暗くして文字を見やすく */
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    padding: 4px 0;
 }

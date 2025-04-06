@@ -17,7 +17,7 @@ class WebController extends Controller
         $recently_shops = Shop::withAvg('reviews', 'score')->orderBy('created_at', 'desc')->take(4)->get();
 
         // おすすめ店舗を取得（recommend_flagがtrueのもの）
-        $recommended_shops = Shop::withAvg('reviews', 'score')->where('recommend_flag', true)->take(4)->get();
+        $recommended_shops = Shop::withAvg('reviews', 'score')->where('recommend_flag', true)->orderByDesc('reviews_avg_score')->take(4)->get();
 
         return view('web.index', compact('categories', 'recently_shops', 'recommended_shops'));
     }

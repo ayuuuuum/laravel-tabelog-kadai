@@ -14,6 +14,7 @@
         <script src="https://kit.fontawesome.com/32f39ed6d1.js" crossorigin="anonymous"></script>
 
         <link href="{{ asset('css/nagoyameshi.css') }}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600&display=swap" rel="stylesheet">
     </head>
     <body>
         <div id="app" class="samuraimart-wrapper">
@@ -25,7 +26,7 @@
             {{-- フラッシュメッセージ表示 --}}
             @if (session('flash_message'))
                 <div class="container">
-                    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                    <div class="alert-message alert alert-success alert-dismissible fade show text-center" role="alert">
                         {{ session('flash_message') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>

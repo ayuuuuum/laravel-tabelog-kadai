@@ -1,7 +1,7 @@
 <footer class="bg-dark text-white py-4">
     <div class="container text-center">
         <!-- ロゴ部分 -->
-        <a href="{{ url('/') }}" class="text-center mb-3 d-block">
+        <a href="{{ url('/') }}" class="text-center mb-3 d-block text-decoration-none">
             <span class="logo-text fs-2">NAGOYAMESHI</span>
         </a>
 
