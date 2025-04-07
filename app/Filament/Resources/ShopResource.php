@@ -49,8 +49,9 @@ class ShopResource extends Resource
                 FileUpload::make('image')
                 ->label('店舗画像')
                 ->image()
-                ->disk('public')  //← config/filesystems.php の public ディスク
-                ->directory('img')// ← public/img に保存される
+                ->disk('s3')
+                ->directory('img') // S3バケット内の img/ ディレクトリに保存される
+                ->visibility('public') // ← S3でも公開設定しないと画像が表示されない
                 ->required(),
 
                 Toggle::make('recommend_flag') // おすすめフラグ

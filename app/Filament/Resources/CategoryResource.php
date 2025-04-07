@@ -41,8 +41,9 @@ class CategoryResource extends Resource
                 FileUpload::make('image')
                 ->label('カテゴリー画像')
                 ->image()
-                ->disk('public') // ← config/filesystems.php の public ディスク
-                ->directory('img')
+                ->disk('s3') 
+                ->directory('img') // S3バケット内の img/ ディレクトリに保存
+                ->visibility('public') // ← S3でも公開設定しないと画像が表示されない
                 ->required()
                 
             ]);

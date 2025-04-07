@@ -22,9 +22,9 @@
                        <a href="{{ route('shops.show', $favorite_shop->id) }}">
                             {{--もし画像があれば表示。無ければ指定の画像を表示--}}
                             @if ($favorite_shop->image !== "")
-                                <img src="{{ asset('storage/' . $favorite_shop->image) }}" class="img-thumbnail samuraimart-product-img-detail">
+                                <img src="{{ Storage::url($favorite_shop->image) }}" class="img-thumbnail samuraimart-product-img-detail">
                             @else
-                                <img src="{{ asset('img/dummy.png')}}" class="img-thumbnail samuraimart-product-img-cart">
+                                <img src="{{ Storage::url(dummy.png)}}" class="img-thumbnail samuraimart-product-img-cart">
                             @endif
                        </a>
                     </div>
