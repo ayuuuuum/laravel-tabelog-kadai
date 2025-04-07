@@ -45,6 +45,7 @@ class CategoryResource extends Resource
                 ->disk('s3') 
                 ->directory('img') // S3バケット内の img/ ディレクトリに保存
                 ->visibility('public') // ← S3でも公開設定しないと画像が表示されない
+                ->preserveFilenames()
                 ->required()
                 
             ]);

@@ -53,6 +53,7 @@ class ShopResource extends Resource
                 ->disk('s3')
                 ->directory('img') // S3バケット内の img/ ディレクトリに保存される
                 ->visibility('public') // ← S3でも公開設定しないと画像が表示されない
+                ->preserveFilenames()
                 ->required(),
 
                 Toggle::make('recommend_flag') // おすすめフラグ
