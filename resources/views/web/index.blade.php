@@ -10,17 +10,17 @@
             </div>
             <div class="carousel-item active">
                 <div class="carousel-image-wrapper position-relative">
-                    <img src="{{ Storage::url(top1.jpg) }}" class="d-block w-100 carousel-image" alt="1枚目">
+                    <img src="{{ Storage::disk('s3')->url(top1.jpg) }}" class="d-block w-100 carousel-image" alt="1枚目">
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="carousel-image-wrapper position-relative">
-                    <img src="{{ asset('storage/img/top2.jpg') }}" class="d-block w-100 carousel-image" alt="2枚目">
+                    <img src="{{ Storage::disk('s3')->url(top2.jpg) }}" class="d-block w-100 carousel-image" alt="2枚目">
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="carousel-image-wrapper position-relative">
-                    <img src="{{ asset('storage/img/海鮮丼.jpg') }}" class="d-block w-100 carousel-image" alt="3枚目">
+                    <img src="{{ Storage::disk('s3')->url(海鮮丼.jpg) }}" class="d-block w-100 carousel-image" alt="3枚目">
                 </div>
             </div>
         </div>
@@ -37,9 +37,9 @@
                     <div class="col-md-3 mb-4">
                         <a href="{{ route('shops.show', $recommended_shop) }}">
                             @if ($recommended_shop->image !== "")
-                                <img src="{{ Storage::url($recommended_shop->image) }}" class="img-thumbnail samuraimart-product-img-detail">
+                                <img src="{{ Storage::disk('s3')->url($recommended_shop->image) }}" class="img-thumbnail samuraimart-product-img-detail">
                             @else
-                                <img src="{{ Storage::url(dummy.png)}}" class="img-thumbnail samuraimart-product-img-recommend">
+                                <img src="{{ Storage::disk('s3')->url(dummy.png)}}" class="img-thumbnail samuraimart-product-img-recommend">
                             @endif
                         </a>
                             <p class="samuraimart-product-label mt-2">
@@ -73,9 +73,9 @@
                             <a href="{{ route('shops.show', $recently_shop) }}">
                                 {{--もし画像があれば表示。無ければ指定の画像を表示--}}
                                 @if ($recently_shop->image !== "")
-                                    <img src="{{ Storage::url($recently_shop->image) }}" class="img-thumbnail samuraimart-product-img-detail">
+                                    <img src="{{ Storage::disk('s3')->url($recently_shop->image) }}" class="img-thumbnail samuraimart-product-img-detail">
                                 @else
-                                    <img src="{{ Storage::url(dummy.png)}}" class="img-thumbnail samuraimart-product-img-products">
+                                    <img src="{{ Storage::disk('s3')->url(dummy.png)}}" class="img-thumbnail samuraimart-product-img-products">
                                 @endif
                             </a>
                                     <p class="samuraimart-product-label mt-2">
