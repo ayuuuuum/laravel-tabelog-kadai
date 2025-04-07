@@ -8,7 +8,7 @@
                     <h3>NAGOYAMESHIは、<br>
                         名古屋市のB級グルメ専門のレビューサイトです。</h3>
             </div>
-            <!--<div class="carousel-item active">
+            {{--<div class="carousel-item active">
                 <div class="carousel-image-wrapper position-relative">
                     <img src="{{ Storage::disk('s3')->url(top1.jpg) }}" class="d-block w-100 carousel-image" alt="1枚目">
                 </div>
@@ -22,7 +22,7 @@
                 <div class="carousel-image-wrapper position-relative">
                     <img src="{{ Storage::disk('s3')->url(海鮮丼.jpg) }}" class="d-block w-100 carousel-image" alt="3枚目">
                 </div>
-            </div>-->
+            </div>--}}
         </div>
     </div>
 
