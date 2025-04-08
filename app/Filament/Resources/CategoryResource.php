@@ -47,6 +47,7 @@ class CategoryResource extends Resource
                 ->visibility('public') // ← S3でも公開設定しないと画像が表示されない
                 ->preserveFilenames() // ファイル名を保つ
                 ->storeFileNamesIn('image') // ← これが「DBにファイル名を保存する」ために必要
+                ->dehydrateStateUsing(fn ($state) => $state)
                 ->required()
                 
             ]);
