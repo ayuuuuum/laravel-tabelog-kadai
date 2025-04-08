@@ -39,16 +39,18 @@ class CategoryResource extends Resource
                 ->required(),
 
                 FileUpload::make('image')
-                ->label('カテゴリー画像')
-                //->id('image-upload') // ← 明示的にidを指定
+                ->label('店舗画像')
                 ->image()
-                ->disk('s3') 
-                ->directory('img') // S3バケット内の img/ ディレクトリに保存
-                ->visibility('public') // ← S3でも公開設定しないと画像が表示されない
-                ->preserveFilenames() // ファイル名を保つ
-                ->storeFileNamesIn('image') // ← これが「DBにファイル名を保存する」ために必要
-                ->dehydrateStateUsing(fn ($state) => $state)
-                ->required()
+                ->directory('img') // S3のimgフォルダに保存
+                ->disk('s3')       // S3使うよ！
+                ->visibility('public') // 公開設定
+                ->storeFileNamesIn('image') // モデルの image カラムに保存
+                ->preserveFilenames() // 元ファイル名保つ
+                ->dehydrateStateUsing(fn ($state) => $state) // ←超重要
+                ->getUploadedFileNameForStorageUsing(function ($file) {
+                    return 'img/' . $file->getClientOriginalName(); // 明示的に保存パスを返す
+                })
+                ->required(),
                 
             ]);
     }
