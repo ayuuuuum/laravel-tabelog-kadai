@@ -50,7 +50,8 @@ class CategoryResource extends Resource
                 ->getUploadedFileNameForStorageUsing(function ($file) {
                     return 'img/' . $file->getClientOriginalName(); // 明示的に保存パスを返す
                 })
-                ->required(),
+                ->required()
+                ->maxFiles(1), // ← これで複数防止
                 
             ]);
     }

@@ -19,8 +19,10 @@ class EditShop extends EditRecord
 
     protected function mutateFormDataBeforeSave(array $data): array
     {
-        if (is_array($data['image'])) {
+        if (is_array($data['image']) && count($data['image']) > 0) {
             $data['image'] = $data['image'][0];
+        } else {
+            $data['image'] = null; // または '' にするなどして空の処理
         }
 
         return $data;

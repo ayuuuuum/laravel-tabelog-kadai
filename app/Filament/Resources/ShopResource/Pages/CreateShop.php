@@ -13,11 +13,12 @@ class CreateShop extends CreateRecord
 
     public function mutateFormDataBeforeCreate(array $data): array
     {
-        // アップロード後のimageが配列なら、最初の要素を取り出す
-        if (is_array($data['image'])) {
+        if (is_array($data['image']) && count($data['image']) > 0) {
             $data['image'] = $data['image'][0];
+        } else {
+            $data['image'] = null; // または '' にするなどして空の処理
         }
-        
+
         // 保存前にログを出力して、imageキーが入っているか確認
         Log::debug('mutateFormDataBeforeCreate', $data);
 
