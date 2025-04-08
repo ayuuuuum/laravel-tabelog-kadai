@@ -50,7 +50,7 @@ class ShopResource extends Resource
                 ->label('店舗画像')
                 //->id('image-upload')← 明示的にidを指定
                 ->image()
-                ->disk('public')
+                ->disk('s3')
                 ->directory('img') // S3バケット内の img/ ディレクトリに保存される
                 ->visibility('public') // ← S3でも公開設定しないと画像が表示されない
                 ->preserveFilenames() // ファイル名を保つ
