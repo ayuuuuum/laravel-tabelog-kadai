@@ -16,4 +16,13 @@ class EditShop extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        if (is_array($data['image'])) {
+            $data['image'] = $data['image'][0];
+        }
+
+        return $data;
+    }
 }
