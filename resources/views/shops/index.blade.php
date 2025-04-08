@@ -77,7 +77,7 @@
                         @if ($shop->image !== "")
                         <img src="{{ Storage::disk('s3')->url($shop->image) }}" class="img-thumbnail samuraimart-product-img-detail">
                         @else
-                        <img src="{{ storage::disk('s3')->url(dummy.png)}}" class="img-thumbnail samuraimart-product-img-products">
+                        <img src="{{ storage::disk('s3')->url('dummy.png')}}" class="img-thumbnail samuraimart-product-img-products">
                         @endif
                    </a>
                    

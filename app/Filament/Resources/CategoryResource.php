@@ -40,12 +40,13 @@ class CategoryResource extends Resource
 
                 FileUpload::make('image')
                 ->label('カテゴリー画像')
-                ->id('image-upload') // ← 明示的にidを指定
+                //->id('image-upload') // ← 明示的にidを指定
                 ->image()
                 ->disk('s3') 
                 ->directory('img') // S3バケット内の img/ ディレクトリに保存
                 ->visibility('public') // ← S3でも公開設定しないと画像が表示されない
                 ->preserveFilenames()
+                ->dehydrated()
                 ->required()
                 
             ]);

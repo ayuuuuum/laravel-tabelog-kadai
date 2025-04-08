@@ -24,7 +24,7 @@
                             @if ($favorite_shop->image !== "")
                                 <img src="{{ Storage::url($favorite_shop->image) }}" class="img-thumbnail samuraimart-product-img-detail">
                             @else
-                                <img src="{{ Storage::url(dummy.png)}}" class="img-thumbnail samuraimart-product-img-cart">
+                                <img src="{{ Storage::url('dummy.png')}}" class="img-thumbnail samuraimart-product-img-cart">
                             @endif
                        </a>
                     </div>

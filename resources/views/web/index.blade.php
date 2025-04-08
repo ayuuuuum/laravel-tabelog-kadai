@@ -39,7 +39,7 @@
                             @if ($recommended_shop->image !== "")
                                 <img src="{{ Storage::disk('s3')->url($recommended_shop->image) }}" class="img-thumbnail samuraimart-product-img-detail">
                             @else
-                                <img src="{{ Storage::disk('s3')->url(dummy.png)}}" class="img-thumbnail samuraimart-product-img-recommend">
+                                <img src="{{ Storage::disk('s3')->url('dummy.png')}}" class="img-thumbnail samuraimart-product-img-recommend">
                             @endif
                         </a>
                             <p class="samuraimart-product-label mt-2">
@@ -75,7 +75,7 @@
                                 @if ($recently_shop->image !== "")
                                     <img src="{{ Storage::disk('s3')->url($recently_shop->image) }}" class="img-thumbnail samuraimart-product-img-detail">
                                 @else
-                                    <img src="{{ Storage::disk('s3')->url(dummy.png)}}" class="img-thumbnail samuraimart-product-img-products">
+                                    <img src="{{ Storage::disk('s3')->url('dummy.png')}}" class="img-thumbnail samuraimart-product-img-products">
                                 @endif
                             </a>
                                     <p class="samuraimart-product-label mt-2">
