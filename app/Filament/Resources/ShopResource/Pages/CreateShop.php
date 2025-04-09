@@ -13,24 +13,6 @@ class CreateShop extends CreateRecord
 
     public function mutateFormDataBeforeCreate(array $data): array
     {
-        \Log::debug('🟢 image state', ['image' => $data['image']]);
-    
-        if (isset($data['image'])) {
-            if (is_array($data['image'])) {
-                // ログ出して確認
-                \Log::debug('✅ imageが配列。中身：', $data['image']);
-                $data['image'] = $data['image'][0] ?? null;
-            } elseif (is_string($data['image'])) {
-                \Log::debug('✅ imageが文字列：' . $data['image']);
-            } else {
-                \Log::debug('⚠️ imageが想定外の形式：' . gettype($data['image']));
-                $data['image'] = null;
-            }
-        } else {
-            \Log::debug('❌ imageが存在しない');
-            $data['image'] = null;
-        }
-    
         return $data;
     }
 }
