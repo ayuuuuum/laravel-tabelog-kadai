@@ -13,15 +13,14 @@ class CreateCategory extends CreateRecord
 
     public function mutateFormDataBeforeCreate(array $data): array
     {
-        // ログで事前確認
-        Log::debug('before mutateFormDataBeforeCreate', ['image' => $data['image'] ?? 'なし']);
+        // デバッグログ：アップロードデータの中身確認！
+        \Log::debug('CreateShop image data', ['image' => $data['image'] ?? 'not set']);
 
+        // 文字列 or 配列の両対応
         if (is_array($data['image'])) {
-            // 配列の場合は最初の1件だけ
             $data['image'] = $data['image'][0] ?? null;
         }
 
-        // 文字列ならそのままでOK
         return $data;
     }
 }
