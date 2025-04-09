@@ -13,10 +13,7 @@ class CreateShop extends CreateRecord
 
     public function mutateFormDataBeforeCreate(array $data): array
     {
-        \Log::debug('🟡 mutateFormDataBeforeCreate の中身', [
-            'image' => $data['image'] ?? 'imageキーなし',
-            'type' => gettype($data['image'] ?? null),
-        ]);
+        \Log::debug('🟢 image state', ['image' => $data['image']]);
     
         if (isset($data['image'])) {
             if (is_array($data['image'])) {
