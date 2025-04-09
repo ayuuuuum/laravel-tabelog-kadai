@@ -40,15 +40,17 @@ class CategoryResource extends Resource
 
                 FileUpload::make('image')
                 ->label('店舗画像')
-                ->image()
-                ->directory('img') // S3のimgフォルダに保存
-                ->disk('s3')  
-                ->visibility('public') // 公開設定
-                ->storeFileNamesIn('image')
-                ->preserveFilenames() // 元ファイル名保つ
-                ->required()
-                ->maxFiles(1) // ← これで複数防止
-                ->multiple(false),
+                ->image()                                  // 画像のみ許可
+                ->disk('s3')                               // S3ディスクを使用
+                ->directory('img')                         // バケット内のディレクトリ
+                ->visibility('public')                     // 公開アクセス権
+                ->preserveFilenames()                      // 元のファイル名で保存
+                ->required()                               // NOT NULL制約に対応
+                ->dehydrateStateUsing(fn($state) =>        // 状態をデータベース保存用に変換
+                    is_array($state) 
+                        ? (array_values($state)[0] ?? null) 
+                        : $state
+                ),
                 
             ]);
     }

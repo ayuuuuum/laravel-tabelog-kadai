@@ -19,5 +19,6 @@ class Category extends Model
         'name',
         'description',
         'image',
+        'image_original_name',  // 元ファイル名を保存するカラム（使用する場合）
     ];
 }
