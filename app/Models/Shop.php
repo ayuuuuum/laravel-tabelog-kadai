@@ -10,6 +10,22 @@ class Shop extends Model
 {
     use HasFactory, Sortable;
 
+    //管理画面での店舗作成
+    protected $fillable = [
+        'name',
+        'description',
+        'image',
+        'image_original_name',  // 元ファイル名を保存するカラム（使用する場合）
+        'recommend_flag',
+        'price',
+        'min_price', 
+        'max_price',
+        'open_time',
+        'close_time',
+        'category_id',
+        'created_at'
+    ];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -30,21 +46,6 @@ class Shop extends Model
     {
         return $this->hasMany(Review::class);
     }
-
-    //管理画面での店舗作成
-    protected $fillable = [
-        'name',
-        'description',
-        'image',
-        'recommend_flag',
-        'price',
-        'min_price', 
-        'max_price',
-        'open_time',
-        'close_time',
-        'category_id',
-        'created_at'
-    ];
 
     public function sales()
     {
