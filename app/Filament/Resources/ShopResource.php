@@ -53,12 +53,10 @@ class ShopResource extends Resource
                 ->directory('img')                         // バケット内のディレクトリ
                 ->visibility('public')                     // 公開アクセス権
                 ->preserveFilenames()                      // 元のファイル名で保存
-                ->required()                               // NOT NULL制約に対応
-                ->dehydrateStateUsing(fn($state) =>        // 状態をデータベース保存用に変換
-                    is_array($state) 
-                        ? (array_values($state)[0] ?? null) 
-                        : $state
-                ),
+                ->storeFileNamesIn('image_orig_name')  // 元ファイル名を別カラムに保存&#8203;:contentReference[oaicite:44]{index=44}
+                ->enableDownload()                     // ダウンロードボタンを有効化（必要に応じて）
+                ->nullable()                           // 必須ではないフィールド
+                ->helperText('対応形式: JPG/PNG, 最大4MBまで'), 
 
                 Toggle::make('recommend_flag') // おすすめフラグ
                 ->label('おすすめ店舗'),
