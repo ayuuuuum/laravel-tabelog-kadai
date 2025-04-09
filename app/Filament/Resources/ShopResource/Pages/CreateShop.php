@@ -13,6 +13,8 @@ class CreateShop extends CreateRecord
 
     public function mutateFormDataBeforeCreate(array $data): array
     {
+        \Log::debug('🟢 mutateFormDataBeforeCreate 中身', $data);
+        
         return $data;
     }
 }

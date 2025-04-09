@@ -20,6 +20,8 @@ class EditShop extends EditRecord
 
     protected function mutateFormDataBeforeSave(array $data): array
     {
+        \Log::debug('🟢 mutateFormDataBeforeCreate 中身', $data);
+        
         return $data;
     }
 }

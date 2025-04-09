@@ -52,8 +52,8 @@ class ShopResource extends Resource
                 ->directory('img') // S3のimgフォルダに保存
                 ->disk('s3')       // S3使うよ！
                 ->visibility('public') // 公開設定
-                ->storeFileNamesIn('image')
                 ->preserveFilenames() // 元ファイル名保つ
+                ->dehydrateStateUsing(fn ($state) => is_array($state) ? $state[0] ?? null : $state)
                 ->required()
                 ->maxFiles(1) // ← これで複数防止
                 ->multiple(false),
