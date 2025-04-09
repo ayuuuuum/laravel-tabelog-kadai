@@ -18,13 +18,19 @@ class CreateShop extends CreateRecord
             'type' => gettype($data['image'] ?? null),
         ]);
     
-        // image が配列の場合のみ最初の要素を使用
         if (isset($data['image'])) {
             if (is_array($data['image'])) {
+                // ログ出して確認
+                \Log::debug('✅ imageが配列。中身：', $data['image']);
                 $data['image'] = $data['image'][0] ?? null;
+            } elseif (is_string($data['image'])) {
+                \Log::debug('✅ imageが文字列：' . $data['image']);
+            } else {
+                \Log::debug('⚠️ imageが想定外の形式：' . gettype($data['image']));
+                $data['image'] = null;
             }
-            // 文字列ならそのままOK
         } else {
+            \Log::debug('❌ imageが存在しない');
             $data['image'] = null;
         }
     
