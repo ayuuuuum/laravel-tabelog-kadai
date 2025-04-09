@@ -20,8 +20,7 @@ class EditCategory extends EditRecord
 
     public function mutateFormDataBeforeCreate(array $data): array
     {
-        // ログで確認（確認したら消してOK）
-        \Log::debug('CreateShop image value', ['image' => $data['image']]);
+        $data['image'] = is_array($data['image']) ? ($data['image'][0] ?? null) : $data['image'];
 
         return $data;
     }

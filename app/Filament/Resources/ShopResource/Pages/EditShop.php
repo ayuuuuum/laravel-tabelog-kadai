@@ -20,8 +20,7 @@ class EditShop extends EditRecord
 
     protected function mutateFormDataBeforeSave(array $data): array
     {
-        // ログで確認（確認したら消してOK）
-        \Log::debug('CreateShop image value', ['image' => $data['image']]);
+        $data['image'] = is_array($data['image']) ? ($data['image'][0] ?? null) : $data['image'];
 
         return $data;
     }
