@@ -42,10 +42,11 @@ class CategoryResource extends Resource
                 ->label('店舗画像')
                 ->image()
                 ->directory('img') // S3のimgフォルダに保存
-                ->disk('s3')       // S3使うよ！
+                ->disk('s3')  
                 ->visibility('public') // 公開設定
                 ->preserveFilenames() // 元ファイル名保つ
-                ->dehydrateStateUsing(fn ($state) => $state) // ←超重要
+                ->dehydrateStateUsing(fn ($state) => $state) 
+                ->dehydrated(true)
                 ->getUploadedFileNameForStorageUsing(function ($file) {
                     return 'img/' . $file->getClientOriginalName(); // 明示的に保存パスを返す
                 })

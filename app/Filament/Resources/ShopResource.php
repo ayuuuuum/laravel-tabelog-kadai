@@ -53,7 +53,8 @@ class ShopResource extends Resource
                 ->disk('s3')       // S3使うよ！
                 ->visibility('public') // 公開設定
                 ->preserveFilenames() // 元ファイル名保つ
-                ->dehydrateStateUsing(fn ($state) => $state) // ←超重要
+                ->dehydrateStateUsing(fn ($state) => $state) 
+                ->dehydrated(true)
                 ->getUploadedFileNameForStorageUsing(function ($file) {
                     return 'img/' . $file->getClientOriginalName(); // 明示的に保存パスを返す
                 })
