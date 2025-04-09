@@ -6,6 +6,7 @@ use App\Filament\Resources\ShopResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class EditShop extends EditRecord
 {
