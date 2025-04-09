@@ -52,7 +52,6 @@ class ShopResource extends Resource
                 ->directory('img') // S3のimgフォルダに保存
                 ->disk('s3')       // S3使うよ！
                 ->visibility('public') // 公開設定
-                ->storeFileNamesIn('image') // モデルの image カラムに保存
                 ->preserveFilenames() // 元ファイル名保つ
                 ->dehydrateStateUsing(fn ($state) => $state) // ←超重要
                 ->getUploadedFileNameForStorageUsing(function ($file) {
