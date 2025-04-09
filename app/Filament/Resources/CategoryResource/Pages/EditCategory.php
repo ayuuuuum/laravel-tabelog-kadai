@@ -20,21 +20,23 @@ class EditCategory extends EditRecord
 
     public function mutateFormDataBeforeCreate(array $data): array
     {
-        \Log::debug('mutateFormDataBeforeCreate: image', ['image' => $data['image']]);
-
-        // imageが配列で、かつ中身があれば[0]を取り出す
+        \Log::debug('🟡 mutateFormDataBeforeCreate の中身', [
+            'image' => $data['image'] ?? 'imageキーなし',
+            'type' => gettype($data['image'] ?? null),
+        ]);
+    
         if (array_key_exists('image', $data)) {
             if (is_array($data['image']) && count($data['image']) > 0) {
                 $data['image'] = $data['image'][0];
             } elseif (is_string($data['image'])) {
-                // すでに文字列（保存名）の場合はそのまま
+                // すでにファイル名文字列ならそのままでOK
             } else {
-                $data['image'] = null; // 最終手段
+                $data['image'] = null;
             }
         } else {
             $data['image'] = null;
         }
-
+    
         return $data;
     }
 }
