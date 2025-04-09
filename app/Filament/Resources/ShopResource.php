@@ -58,7 +58,8 @@ class ShopResource extends Resource
                     return 'img/' . $file->getClientOriginalName(); // 明示的に保存パスを返す
                 })
                 ->required()
-                ->maxFiles(1), // ← これで複数防止
+                ->maxFiles(1) // ← これで複数防止
+                ->multiple(false),
 
                 Toggle::make('recommend_flag') // おすすめフラグ
                 ->label('おすすめ店舗'),
