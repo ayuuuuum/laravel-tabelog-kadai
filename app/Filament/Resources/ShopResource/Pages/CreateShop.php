@@ -18,14 +18,12 @@ class CreateShop extends CreateRecord
             'type' => gettype($data['image'] ?? null),
         ]);
     
-        if (array_key_exists('image', $data)) {
-            if (is_array($data['image']) && count($data['image']) > 0) {
-                $data['image'] = $data['image'][0];
-            } elseif (is_string($data['image'])) {
-                // すでにファイル名文字列ならそのままでOK
-            } else {
-                $data['image'] = null;
+        // image が配列の場合のみ最初の要素を使用
+        if (isset($data['image'])) {
+            if (is_array($data['image'])) {
+                $data['image'] = $data['image'][0] ?? null;
             }
+            // 文字列ならそのままOK
         } else {
             $data['image'] = null;
         }
