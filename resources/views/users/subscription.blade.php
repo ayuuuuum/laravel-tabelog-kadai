@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
- <h2 class="text-center">有料会員登録</h2>
+ <h1 class="text-center">有料会員登録</h1>
   <div class="row justify-content-center">
     <div class="col-md-6">
         <div class="card mb-4 shadow-sm">
