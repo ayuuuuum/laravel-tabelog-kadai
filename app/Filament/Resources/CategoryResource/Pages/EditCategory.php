@@ -18,7 +18,7 @@ class EditCategory extends EditRecord
         ];
     }
 
-    public function mutateFormDataBeforeCreate(array $data): array
+    /*public function mutateFormDataBeforeCreate(array $data): array
     {
         \Log::debug('🟡 mutateFormDataBeforeCreate の中身', [
             'image' => $data['image'] ?? 'imageキーなし',
@@ -36,5 +36,5 @@ class EditCategory extends EditRecord
         }
     
         return $data;
-    }
+    }*/
 }

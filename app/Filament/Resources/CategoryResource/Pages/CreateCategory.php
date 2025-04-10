@@ -11,7 +11,7 @@ class CreateCategory extends CreateRecord
 {
     protected static string $resource = CategoryResource::class;
 
-    public function mutateFormDataBeforeCreate(array $data): array
+    /*public function mutateFormDataBeforeCreate(array $data): array
     {
         \Log::debug('🟡 mutateFormDataBeforeCreate の中身', [
             'image' => $data['image'] ?? 'imageキーなし',
@@ -29,5 +29,5 @@ class CreateCategory extends CreateRecord
         }
     
         return $data;
-    }
+    }*/
 }

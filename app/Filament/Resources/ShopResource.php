@@ -53,7 +53,7 @@ class ShopResource extends Resource
                 ->directory('img')                         // バケット内のディレクトリ
                 ->visibility('public')                     // 公開アクセス権
                 ->preserveFilenames()                      // 元のファイル名で保存
-                ->storeFileNamesIn('image_orig_name')  // 元ファイル名を別カラムに保存&#8203;:contentReference[oaicite:44]{index=44}
+                ->storeFileNamesIn('image_orig_name')// 元ファイル名を別カラムに保存
                 ->enableDownload()                     // ダウンロードボタンを有効化（必要に応じて）
                 ->nullable()                           // 必須ではないフィールド
                 ->helperText('対応形式: JPG/PNG, 最大4MBまで'), 

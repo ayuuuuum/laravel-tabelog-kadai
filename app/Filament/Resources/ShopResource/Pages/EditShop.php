@@ -19,7 +19,7 @@ class EditShop extends EditRecord
         ];
     }
 
-    protected function mutateFormDataBeforeFill(array $data): array
+    /*protected function mutateFormDataBeforeFill(array $data): array
     {
         // 既存のパスに「img/」が含まれない場合は付与（万一の不整合に備えて）
         if (!empty($data['image']) && !str_contains($data['image'], 'img/')) {
@@ -35,5 +35,5 @@ class EditShop extends EditRecord
             Storage::disk('s3')->delete($this->record->image);
         }
         return $data;
-    }
+    }*/
 }
