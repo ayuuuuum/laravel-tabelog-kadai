@@ -56,7 +56,12 @@ class ShopResource extends Resource
                 ->storeFileNamesIn('image_orig_name')// 元ファイル名を別カラムに保存
                 ->enableDownload()                     // ダウンロードボタンを有効化（必要に応じて）
                 ->nullable()                           // 必須ではないフィールド
-                ->helperText('対応形式: JPG/PNG, 最大4MBまで'), 
+                ->helperText('対応形式: JPG/PNG, 最大4MBまで')
+                ->dehydrateStateUsing(fn($state) =>        // 状態をデータベース保存用に変換
+                        is_array($state) 
+                            ? (array_values($state)[0] ?? null) 
+                            : $state
+                    ),
 
                 Toggle::make('recommend_flag') // おすすめフラグ
                 ->label('おすすめ店舗'),

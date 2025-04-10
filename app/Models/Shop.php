@@ -15,6 +15,7 @@ class Shop extends Model
         'name',
         'description',
         'image',
+        'image_original_name',
         'recommend_flag',
         'price',
         'min_price', 
