@@ -30,9 +30,7 @@
                    <li class="nav-item me-4">
                        <a class="nav-link" href="{{ route('login') }}"><i class="far fa-heart"></i></a>
                    </li>
-                   <li class="nav-item">
-                       <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-shopping-cart"></i></a>
-                   </li>
+                   
                {{--ログインしている場合の処理--}}
                @else
                    <li class="nav-item me-4">

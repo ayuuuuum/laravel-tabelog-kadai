@@ -7,11 +7,6 @@
 
             <h1>マイページ</h1>
 
-            @if (session('flash_message'))
-            <div class="alert alert-light">
-                {{ session('flash_message') }}
-            </div>
-            @endif
         <div class="container">
            <div class="d-flex justify-content-between">
                <div class="row">

@@ -31,6 +31,7 @@
                     <th>店舗名</th>
                     <th>予約日時</th>
                     <th>人数</th>
+                    <th> </th>
                 </tr>
             </thead>
             <tbody>

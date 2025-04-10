@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-md-7 d-flex flex-column justify-content-center">
                         {{--店舗名と値段を表示--}}
-                        <h5 class="mb-1"><a href="{{ route('shops.show', $favorite_shop->id) }}" class="link-dark">{{ $favorite_shop->name }}</a></h5>
+                        <h5 class="mb-1"><a href="{{ route('shops.show', $favorite_shop->id) }}" class="link-dark" style="text-decoration: none;">{{ $favorite_shop->name }}</a></h5>
                         <p class="mb-0">￥{{ number_format($favorite_shop->price) }}</h6>
                     </div>
 
