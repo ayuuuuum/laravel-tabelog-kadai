@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container">
-    <h2>有料会員登録</h2>
   <div class="row justify-content-center">
+   <h2>有料会員登録</h2>
     <div class="col-md-6">
         <div class="card mb-4 shadow-sm">
             <div class="card-body">
-            <h4 class="card-title text-center text-primary fw-bold mb-3">🎁 有料会員の特典 🎁</h4>
+            <h4 class="subscription-benefits card-title text-center text-primary fw-bold mb-3">🎁 有料会員の特典 🎁</h4>
                 <ul class="list-unstyled fs-6 mb-0">
                     <li class="mb-2">✅ <strong>当日の2時間前まで</strong>ならいつでも予約可能！</li>
                     <li class="mb-2">✅ <strong>店舗を無制限</strong>にお気に入り追加！</li>
