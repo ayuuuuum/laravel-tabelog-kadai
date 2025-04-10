@@ -5,9 +5,9 @@
     @foreach ($categories->take(5) as $category)
         <a href="{{ route('shops.index', ['category' => $category->id]) }}" class="category-img-wrapper">
             @if ($category->image !== "")
-                <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" class="category-img">
+                <img src="{{ Storage::disk('s3')->url($category->image) }}" alt="{{ $category->name }}" class="category-img">
             @else
-                <img src="{{ asset('img/dummy.png')}}" alt="{{ $category->name }}" class="category-img">
+                <img src="{{ Storage::disk('s3')->url('dummy.png') }}" alt="{{ $category->name }}" class="category-img">
             @endif
         <div class="category-name-overlay">{{ $category->name }}</div>
         </a>

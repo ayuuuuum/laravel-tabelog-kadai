@@ -49,7 +49,6 @@ class CategoryResource extends Resource
                 ->enableDownload()                     // ダウンロードボタンを有効化（必要に応じて）
                 ->nullable()                           // 必須ではないフィールド
                 ->helperText('対応形式: JPG/PNG, 最大4MBまで'), 
-                
             ]);
     }
 
