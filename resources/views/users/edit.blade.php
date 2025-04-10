@@ -21,7 +21,6 @@
                <input type="hidden" name="_method" value="PUT">
                <div class="form-group row mb-3">
                     <label for="name" class="col-md-5 col-form-label text-md-left fw-medium">氏名<span class="ms-1 samuraimart-require-input-label"><span class="samuraimart-require-input-label-text">必須</span></span></label>
-               </div>
                    <div class="col-md-7">
                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror samuraimart-login-input" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus placeholder="侍 太郎">
                        @error('name')
@@ -34,8 +33,7 @@
                <br>
 
                <div class="form-group row mb-3">
-                   <label for="email" class="col-md-5 col-form-label text-md-left fw-medium">メールアドレス<span class="ms-1 samuraimart-require-input-label"><span class="samuraimart-require-input-label-text">必須</span></span></label>
-               </div>
+                   <label for="email" class="col-md-5 col-form-label fw-medium">メールアドレス<span class="ms-1 samuraimart-require-input-label"><span class="samuraimart-require-input-label-text">必須</span></span></label>
                    <div class="col-md-7">
                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror samuraimart-login-input" name="email" value="{{ $user->email }}" required autocomplete="email" placeholder="samurai@samurai.com">
                        @error('email')
@@ -51,10 +49,13 @@
                <br>
 
                <hr class="mb-4">
+
+               <div class="text-center">
                {{--submitボタンでupdateアクションにformの情報を渡している--}}
-               <button type="submit" class="btn samuraimart-submit-button w-100 text-white">
+               <button type="submit" class="btn samuraimart-submit-button px-4 text-white">
                    保存
                </button>
+                </div>
            </form>
 
            <hr class="my-4">

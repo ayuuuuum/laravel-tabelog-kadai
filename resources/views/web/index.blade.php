@@ -15,7 +15,7 @@
             </div>
             <div class="carousel-item">
                 <div class="carousel-image-wrapper position-relative">
-                    <img src="{{ Storage::disk('s3')->url('img/焼肉2.jpg') }}" class="d-block w-100 carousel-image" alt="2枚目">
+                    <img src="{{ Storage::disk('s3')->url('img/焼肉２.jpg') }}" class="d-block w-100 carousel-image" alt="2枚目">
                 </div>
             </div>
             <div class="carousel-item">
