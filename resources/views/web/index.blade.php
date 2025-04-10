@@ -10,17 +10,17 @@
             </div>
             <div class="carousel-item active">
                 <div class="carousel-image-wrapper position-relative">
-                    <img src="{{ Storage::disk('s3')->url(img\丼もの.jpg) }}" class="d-block w-100 carousel-image" alt="1枚目">
+                    <img src="{{ Storage::disk('s3')->url('img/丼もの.jpg') }}" class="d-block w-100 carousel-image" alt="1枚目">
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="carousel-image-wrapper position-relative">
-                    <img src="{{ Storage::disk('s3')->url(img\焼肉2.jpg) }}" class="d-block w-100 carousel-image" alt="2枚目">
+                    <img src="{{ Storage::disk('s3')->url('img/焼肉2.jpg') }}" class="d-block w-100 carousel-image" alt="2枚目">
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="carousel-image-wrapper position-relative">
-                    <img src="{{ Storage::disk('s3')->url(img\海鮮丼.jpg) }}" class="d-block w-100 carousel-image" alt="3枚目">
+                    <img src="{{ Storage::disk('s3')->url('img/海鮮丼.jpg') }}" class="d-block w-100 carousel-image" alt="3枚目">
                 </div>
             </div>
         </div>
