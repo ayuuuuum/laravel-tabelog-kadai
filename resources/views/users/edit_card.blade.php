@@ -8,7 +8,7 @@
         @csrf
 
         <label for="card-holder-name">カード名義</label>
-        <div id="card-number-element" class="form-control mb-4"></div>
+        <input id="card-holder-name" type="text" class="form-control mb-4" placeholder="TARO YAMADA">
 
         <label>カード番号</label>
         <div id="card-number-element" class="form-control mb-4"></div>
@@ -20,7 +20,7 @@
         <div id="card-cvc-element" class="form-control mb-4"></div>
 
         <input type="hidden" id="payment-method" name="payment_method">
-        <button id="card-button" class="btn btn-primary mt-3">更新する</button>
+        <button id="card-button" class="card-btn btn-primary mt-3">更新する</button>
     </form>
 </div>
 

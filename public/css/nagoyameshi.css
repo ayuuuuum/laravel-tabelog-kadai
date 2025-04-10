@@ -489,3 +489,8 @@ h1 {
     text-align: center;
     padding: 4px 0;
 }
+
+.card-btn {
+    background-color: #ec802d;
+    color: #fff;
+}

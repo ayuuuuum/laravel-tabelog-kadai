@@ -9,13 +9,20 @@
 
         {{--Stripe.js を使ったクレジットカード入力--}}
         <label for="card-holder-name">カード名義</label>
-        <input id="card-holder-name" type="text" class="form-control">
+        <input id="card-holder-name" type="text" class="form-control mb-4" placeholder="TARO YAMADA">
 
-        <div id="card-element"></div> {{-- Stripeがカード入力フィールドをレンダリング --}}
+        <label>カード番号</label>
+        <div id="card-number-element" class="form-control mb-4"></div>
 
-        <button id="card-button" class="btn btn-primary mt-3">登録する</button>
+        <label>有効期限</label>
+        <div id="card-expiry-element" class="form-control mb-4"></div>
+
+        <label>CVC</label>
+        <div id="card-cvc-element" class="form-control mb-4"></div>
 
         <input type="hidden" id="payment-method" name="payment_method">
+
+        <button id="card-button" class="card-btn btn-primary mt-3">登録する</button>
     </form>
 </div>
 
@@ -26,11 +33,15 @@
         //環境変数から公開キーを取得
         const stripe = Stripe("{{ env('STRIPE_KEY') }}"); 
         const elements = stripe.elements();
-        const cardElement = elements.create('card', {
-            hidePostalCode: true
-        });
-        cardElement.mount('#card-element');
 
+        const cardNumber = elements.create('cardNumber');
+        const cardExpiry = elements.create('cardExpiry');
+        const cardCvc = elements.create('cardCvc');
+
+        cardNumber.mount('#card-number-element');
+        cardExpiry.mount('#card-expiry-element');
+        cardCvc.mount('#card-cvc-element');
+        
         const cardHolderName = document.getElementById('card-holder-name');
         const cardButton = document.getElementById('card-button');
         const form = document.getElementById('subscription-form');
@@ -40,7 +51,9 @@
             event.preventDefault();
 
             // カード情報をStripeに送信してPaymentMethodを作成
-            const { paymentMethod, error } = await stripe.createPaymentMethod('card', cardElement, {
+            const { paymentMethod, error } = await stripe.createPaymentMethod({
+                type: 'card',
+                card: cardNumber, // 1個だけ渡せばOK！
                 billing_details: { name: cardHolderName.value }
             });
 
@@ -50,30 +63,6 @@
                 paymentMethodInput.value = paymentMethod.id;
                 form.submit();
             }
-
-            {{--paymentMethodInput.value = paymentMethod.id;
-
-        // フォームを送信
-        const response = await fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-            headers: { "X-Requested-With": "XMLHttpRequest" }
-        });
-
-        const result = await response.json();
-
-        if (result.requires_action) {
-            // 3Dセキュア認証を開始
-            const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(result.payment_intent_client_secret);
-
-            if (confirmError) {
-                alert(confirmError.message);
-                return;
-            }
-        }
-
-        // 認証完了後にページをリロード
-        window.location.href = "{{ route('mypage') }}";--}}
         });
     });
 </script>
