@@ -18,7 +18,9 @@
         "laravel/tinker": "^2.7",
         "league/flysystem-aws-s3-v3": "3.0",
         "maatwebsite/excel": "3.1.50",
-        "stripe/stripe-php": "^10.21"
+        "mailgun/mailgun-php": "^4.3",
+        "stripe/stripe-php": "^10.21",
+        "symfony/mailgun-mailer": "^7.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -67,7 +69,8 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
         },
         "platform": {
             "php": "8.2.12"
