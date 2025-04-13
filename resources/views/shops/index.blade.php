@@ -19,7 +19,7 @@
               <li class="breadcrumb-item active" aria-current="page">{{ $category->name }}</li>
               </ol>
             </nav>
-                <h1>{{ $category->name }}の商品一覧<span class="ms-3">{{number_format($total_count)}}件</span></h1>
+                <h1>{{ $category->name }}の店舗一覧<span class="ms-3">{{number_format($total_count)}}件</span></h1>
                 {{--検索ワードの値が存在すれば、検索結果、件数を表示--}}
             @elseif ($keyword !== null)
             <nav class="mb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -27,7 +27,7 @@
               <li class="breadcrumb-item">
                 <a href="{{ route('top') }}">トップ</a>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">商品一覧
+              <li class="breadcrumb-item active" aria-current="page">店舗一覧
               </li>
               </ol>
             </nav>
@@ -85,7 +85,7 @@
                              <a href="{{ route('shops.show', $shop) }}" class="link-dark">
                                {{$shop->name}}</a><br>
                                 <br>
-                                <span>
+                                <span class="review-color">
                                     @for ($i = 1; $i <= 5; $i++)
                                         @if ($i <= round($shop->reviews_avg_score))
                                             ★
