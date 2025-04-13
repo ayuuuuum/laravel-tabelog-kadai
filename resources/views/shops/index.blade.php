@@ -82,7 +82,7 @@
                    </a>
                    
                             <p class="samuraimart-product-label mt-2">
-                             <a href="{{ route('shops.show', $shop) }}" class="link-dark">
+                             <a href="{{ route('shops.show', $shop) }}" class="link-dark style="text-decoration: none;">
                                {{$shop->name}}</a><br>
                                 <br>
                                 <span class="review-color">
