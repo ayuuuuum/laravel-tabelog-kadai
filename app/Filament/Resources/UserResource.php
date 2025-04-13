@@ -15,6 +15,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Actions\ForceDeleteAction;
 use Filament\Tables\Actions\RestoreAction;
 
 class UserResource extends Resource
@@ -71,6 +72,8 @@ class UserResource extends Resource
                     }
                 }),
                 Tables\Actions\DeleteAction::make()->requiresConfirmation(), // 物理削除
+                Tables\Actions\RestoreAction::make(), // ← soft deleteを戻す用（任意）
+                Tables\Actions\ForceDeleteAction::make(), // ← 完全削除アクション
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
